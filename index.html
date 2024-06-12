@@ -57,7 +57,7 @@
                         <td>Kabel</td>
                         <td id="resultJarak"></td>
                         <td>Mtr</td>
-                        <td>25,000</td>
+                        <td>15,000</td>
                         <td id="totalPriceKabel"></td>
                     </tr>
                     <tr>
@@ -100,6 +100,12 @@
                         <td>250,000</td>
                         <td id="totalPriceInstalasiTiang"></td>
                     </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Biaya Tak Terduga</td>
+                        <td colspan="3"></td>
+                        <td id="totalPriceBiayaTakTerduga"></td>
+                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -118,16 +124,13 @@
             var jarak = parseInt(document.getElementById('jarak').value);
             var biaya = parseFloat(document.getElementById('biaya').value);
 
-            var biayaPerMeter = 15000;
-            var totalBiaya = (jarak * biayaPerMeter) + biaya;
-
             var totalTiang = Math.ceil(jarak / 50);
             var suspension = Math.ceil(totalTiang * 0.7);
             var deadEnd = Math.ceil(totalTiang * 0.3);
             var fixingSlack = deadEnd;
 
             var unitPriceTiang = 700000;
-            var unitPriceKabel = 25000;
+            var unitPriceKabel = 15000;
             var unitPriceSuspension = 25000;
             var unitPriceDeadEnd = 25000;
             var unitPriceFixingSlack = 100000;
@@ -163,6 +166,8 @@
 
             document.getElementById('totalPriceInstalasiTiang').innerText = totalPriceInstalasiTiang.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
 
+            document.getElementById('totalPriceBiayaTakTerduga').innerText = biaya.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+
             document.getElementById('grandTotalPrice').innerText = grandTotalPrice.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
 
             document.getElementById('resultTable').style.display = 'table';
@@ -170,7 +175,8 @@
     </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
